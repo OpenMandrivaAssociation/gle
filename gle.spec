@@ -12,7 +12,7 @@ URL: http://sourceforge.net/projects/gle
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: libmesaglu-devel >= 4.0.1
 BuildRequires: libmesaglut-devel >= 4.0.1
-BuildRequires: XFree86-devel
+BuildRequires: X11-devel
 
 %description
 GLE is a library package of C functions that draw extruded surfaces,
