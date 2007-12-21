@@ -9,6 +9,7 @@ License: GPL
 Group: System/Libraries
 Source: gle-%{version}.tar.bz2
 URL: http://sourceforge.net/projects/gle
+BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: libmesaglu-devel >= 4.0.1
 BuildRequires: libmesaglut-devel >= 4.0.1
 BuildRequires: X11-devel
