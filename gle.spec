@@ -4,10 +4,15 @@
 Summary:  GLE Tubing and Extrusion Library
 Name: gle
 Version: 3.1.0
-Release: %mkrel 6
+Release: %mkrel 7
 License: GPL
 Group: System/Libraries
 Source: gle-%{version}.tar.bz2
+# (Anssi 05/2008) Link against libGL and libGLU to fix undefined symbols.
+Patch0: gle-3.1.0-link-with-gl+glu.patch
+# (Anssi 05/2008) Fix Makefile.am files using += on unset CLEANFILES and SUFFIXES.
+# This patch simply changes += to =, which AFAICS is correct here.
+Patch1: gle-3.1.0-fix-makefiles.patch
 URL: http://sourceforge.net/projects/gle
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: libmesaglu-devel >= 4.0.1
@@ -62,11 +67,15 @@ OpenGL API's to perform the actual rendering.
 The static library and headers needed for developing GLE applications.
 
 %prep
-%setup -q 
+%setup -q
+%patch0 -p1
+%patch1 -p1
 find examples -name .cvsignore -exec rm {} \;
 
 %build
-%configure
+# link-with-gl+glu.patch
+autoreconf --force --install
+%configure2_5x
 %make
 
 %install
@@ -86,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname
 %defattr(-, root, root)
 %doc README NEWS COPYING AUTHORS
-%_libdir/libgle.so.*
+%_libdir/libgle.so.%{major}*
 
 %files -n %libname-devel
 %defattr(-, root, root)
