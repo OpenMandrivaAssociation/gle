@@ -4,7 +4,7 @@
 Summary:  GLE Tubing and Extrusion Library
 Name: gle
 Version: 3.1.0
-Release: %mkrel 7
+Release: %mkrel 8
 License: GPL
 Group: System/Libraries
 Source: gle-%{version}.tar.bz2
