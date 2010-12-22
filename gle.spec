@@ -1,10 +1,11 @@
 %define major 3
 %define libname %mklibname gle %major
+%define develname %mklibname -d gle
 
-Summary:  GLE Tubing and Extrusion Library
+Summary: GLE Tubing and Extrusion Library
 Name: gle
 Version: 3.1.0
-Release: %mkrel 10
+Release: %mkrel 11
 License: GPLv2
 Group: System/Libraries
 Source: gle-%{version}.tar.bz2
@@ -17,7 +18,6 @@ URL: http://sourceforge.net/projects/gle
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: libmesaglu-devel >= 4.0.1
 BuildRequires: libmesaglut-devel >= 4.0.1
-BuildRequires: X11-devel
 
 %description
 GLE is a library package of C functions that draw extruded surfaces,
@@ -47,13 +47,15 @@ OpenGL API's to perform the actual rendering.
 
 The shared library needed by GLE applications.
 
-%package -n %libname-devel
+%package -n %develname
 Summary:        Devel files for GLE
 Group:          Development/C
 Requires:	%libname = %version
 Provides:	libgle-devel = %version
 Provides:	gle-devel = %version
-%description -n %libname-devel
+Obsoletes:	%{_lib}gle3-devel < 3.1.0-11
+
+%description -n %develname
 GLE is a library package of C functions that draw extruded surfaces,
 including surfaces of revolution, sweeps, tubes, polycones,
 polycylinders and helicoids.  Generically, the extruded surface is
@@ -101,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README NEWS COPYING AUTHORS
 %_libdir/libgle.so.%{major}*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-, root, root)
 %doc ChangeLog src/COPYING.src src/README.gutil examples installed-docs
 %_libdir/libgle.so
@@ -109,5 +111,3 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libgle.a
 %_includedir/GL/*
 %_mandir/man3/*
-
-
