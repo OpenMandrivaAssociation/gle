@@ -81,7 +81,7 @@ autoreconf --force --install
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT installed-docs
+rm -rf %{buildroot} installed-docs
 %makeinstall_std
 mv %buildroot%_datadir/doc/gle installed-docs
 
@@ -89,7 +89,7 @@ cd examples
 make clean
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
