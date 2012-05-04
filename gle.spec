@@ -107,7 +107,6 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %doc ChangeLog src/COPYING.src src/README.gutil examples installed-docs
 %_libdir/libgle.so
-%_libdir/libgle.la
 %_libdir/libgle.a
 %_includedir/GL/*
 %_mandir/man3/*
