@@ -1,0 +1,11 @@
+--- gle-3.1.0/configure.in.bero	2013-01-13 00:54:01.421698739 +0100
++++ gle-3.1.0/configure.in	2013-01-13 00:54:07.444629465 +0100
+@@ -25,7 +25,7 @@ dnl Process this file with autoconf to p
+ 
+ AC_INIT(src/gle.h)
+ AM_INIT_AUTOMAKE(gle,3.1.0)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ 
+ AC_PROG_CC
+ AC_PROG_INSTALL

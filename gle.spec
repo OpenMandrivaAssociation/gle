@@ -14,6 +14,7 @@ Patch0:		gle-3.1.0-link-with-gl+glu.patch
 # (Anssi 05/2008) Fix Makefile.am files using += on unset CLEANFILES and SUFFIXES.
 # This patch simply changes += to =, which AFAICS is correct here.
 Patch1:		gle-3.1.0-fix-makefiles.patch
+Patch2:		gle-3.1.0-automake-1.13.patch
 URL:		http://sourceforge.net/projects/gle
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
@@ -71,8 +72,7 @@ The static library and headers needed for developing GLE applications.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%apply_patches
 find examples -name .cvsignore -exec rm {} \;
 
 %build
