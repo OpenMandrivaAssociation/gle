@@ -62,7 +62,7 @@ The development library and headers needed for developing GLE applications.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 find examples -name .cvsignore -exec rm {} \;
 
 # link-with-gl+glu.patch
