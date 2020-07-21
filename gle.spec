@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(xt)
+BuildRequires:	pkgconfig(xi)
 
 %description
 GLE is a library package of C functions that draw extruded surfaces,
