@@ -8,7 +8,7 @@ Version:	3.1.0
 Release:	25
 License:	GPLv2
 Group:		System/Libraries
-Url:		http://sourceforge.net/projects/gle
+Url:		https://sourceforge.net/projects/gle
 Source0:	gle-%{version}.tar.bz2
 # (Anssi 05/2008) Link against libGL and libGLU to fix undefined symbols.
 Patch0:		gle-3.1.0-link-with-gl+glu.patch
