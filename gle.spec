@@ -17,6 +17,11 @@ Patch0:		gle-3.1.0-link-with-gl+glu.patch
 Patch1:		gle-3.1.0-fix-makefiles.patch
 Patch2:		gle-3.1.0-automake-1.13.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(x11)
